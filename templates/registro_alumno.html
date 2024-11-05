@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Registrar/Editar Alumno</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('get_alumnos') }}">Alumnos</a>
+        <a href="{{ url_for('add_alumno_form') }}">Registrar</a>
+    </nav>
+
+    <div class="container">
+        <h2>Registrar/Editar Alumno</h2>
+        <form action="{{ url_for('add_alumno') if not alumno else url_for('update_alumno', id_alum=alumno.id) }}" method="post">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" value="{{ alumno.name if alumno else '' }}" required>
+
+            <label for="carrera">Carrera</label>
+            <input type="text" id="carrera" name="carrera" value="{{ alumno.carrera if alumno else '' }}" required>
+
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" value="{{ alumno.edad if alumno else '' }}" required>
+
+            <button type="submit">Guardar</button>
+            <a href="{{ url_for('get_alumnos') }}">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
