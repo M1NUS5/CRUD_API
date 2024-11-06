@@ -3,3 +3,6 @@ Lib/
 Scripts/
 venv/
 pyvenv.cfg
+app.py
+templates/
+
