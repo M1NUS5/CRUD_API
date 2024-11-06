@@ -1,0 +1,27 @@
+<!-- templates/actualizar_alumno.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Actualizar Alumno</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Actualizar Información del Alumno</h2>
+        <form action="{{ url_for('update_alumno', id_alum=alumno.id) }}" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" value="{{ alumno.name }}" required>
+
+            <label for="carrera">Carrera:</label>
+            <input type="text" id="carrera" name="carrera" value="{{ alumno.carrera }}" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" value="{{ alumno.edad }}" required>
+
+            <button type="submit">Actualizar Alumno</button>
+        </form>
+    </div>
+</body>
+</html>
